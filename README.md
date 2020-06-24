@@ -414,7 +414,7 @@ https://docs.platformio.org/en/latest/platforms/kendryte210.html
 
 ![](../master/imagenes/Image%20%5B16%5D.png)
 
-![](../master/imagenes/Image%20%5B16%5D.png)
+![](../master/imagenes/Image%20%5B17%5D.png)
 
 
 Limitaciones:

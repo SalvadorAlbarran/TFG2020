@@ -28,7 +28,7 @@ https://keras.io/
 **Keras** es una API de redes neuronales de alto nivel, escrita en Python y capaz de ejecutarse sobre TensorFlow, CNTK o Theano.
 Admite redes convolucionales y redes recurrentes, así como combinaciones de las dos y se ejecuta sin problemas en CPU y GPU.
 
-# 1 Instalar el entorno (Se ha elegido Keras)
+# 1. Instalar el entorno (Se ha elegido Keras)
 Nota: La versión de tensorflow 1.x a 2.x cambia la forma de escribir los scripts, por lo que si se usan los scripts que se dan en este ejemplo con la versión 2.x no funcionará, los cambios son básicamente que ya no hay que instalar Keras ya que está implementado dentro de tensorflow, por lo que para usar una librería de keras tendríamos que hacer:
 
 Import tensorflow as tf
@@ -106,13 +106,47 @@ Significa que tiene un valor alpha = 0.75 llamado multiplicador de anchura, el t
 
 Se recomienda por la siguiente tabla:
 
-![](../master/imagenes/Image%20%5B2%5D.png)
+![](../master/imagenes/Image%20%5B3%5D.png)
 
-https://github.com/fchollet/deep-learning-models/releases/tag/v0.6/
-Se recomienda usar mobilenet_7_5_224_tf_no_top.h5
-Lo guardaremos en ~ /.keras/models/
-Significa que tiene un valor alpha = 0.75 llamado multiplicador de anchura, el tamaño de la imagen de entrada es de 224x224 y sin capa del top(sin dropout ni última capa conectada con activación softmax).
-Se recomienda por la siguiente tabla:
+
+La diferencia entre un alpha 1.00x  a 0.75x es de más o menos un 2% de pérdida de precisión, mientras que el número de parámetros se reduce de 4.24M a 2.59M, que usando una cuantización de 8 bits se resume en 4.25MB vs 2.59MB, una diferencia considerable.
+
+Usando Micropython no podríamos usar el de 4.35MB, pero sí el de 2.59MB, en cambio sí se usa Standalone o FreeRTOS se podría usar ambos sin problema.
+
+Yo he probado a entrenar ambos modelos, que los comentaré más adelante.
+
+
+# 3. Descargar el conjunto de datos imagenet ILSVRC2012_IMG_TRAIN
+
+Son 150GB así que deja espacio suficiente en disco.
+
+Este conjunto de datos contiene 1000 clases, al descomprimirlo tendrás 1000 .tar por lo que será necesario usar un script para agilizar la operación:
+
+![](../master/imagenes/Image%20%5B4%5D.png)
+
+
+# 4. Ajustar el archivo original mobilenet.py
+El chip k210 usa un relleno de ceros en todas las direcciones (arriba, abajo, derecha, izquierda) mientras que el relleno de Keras es solo de derecha y abajo, por lo que vamos a necesitar cambiar dos líneas al fichero original.
+
+Se encuentra en ~ /python3.5/site-packages/keras_applications/mobilenet.py
+
+En la función original tenemos:
+x = layers.ZeroPadding2D(padding = ( ( 0, 1 ), ( 0, 1 ) ), name = ‘conv_pad_%d’ % block_id ) (inputs)
+
+ Y nosotros queremos:
+x = layers.ZeroPadding2D(padding = ( ( 1, 1 ), ( 1, 1 ) ), name = ‘conv_pad_%d’ % block_id ) (inputs)
+
+Aparece 2 veces, en la línea 354 y en la 423.
+
+# 5. Terminar script de entrenamiento
+Como hemos escogido un modelo sin el top (sin softmax ni dropout) tenemos que añadirlo, sipeed nos proporciona un script hecho, aunque realmente lo que hace es:
+
++ Añadir el dropout y una capa final con activación softmax.
+
+
+
+
+
 
 
 

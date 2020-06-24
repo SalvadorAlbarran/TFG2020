@@ -55,5 +55,17 @@ Para saber que versión instalar se puede mirar en esta gráfica:
 Sacada de https://www.tensorflow.org/install/source#linux
 
 
+**Instalación mediante conda (Anaconda, la que he usado yo):**
+
+Parecido a la instalación mediante pip pero con más facilidades, para instalar Tensorflow gpu basta con poner el siguiente comando:
+
+conda install tensorflow-gpu==1.13.1
+
+Con esto instalará todos los requisitos de NVIDIA que necesita esta versión de Tensorflow, como en pip se necesitará que tengas actualizados los drives de tu gráfica, pero no tendrás que instalar uno a uno todos los componentes.
+
+Además, en el caso de que se use la versión de CPU (intel) anaconda tiene un rendimiento bastante significativo (alrededor de 8 veces más rápido) en comparación con pip como se muestra en la siguiente figura:
+
+
+
 
 

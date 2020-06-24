@@ -314,9 +314,9 @@ Comandos para usar toco o tflite_convert:
 
 **--output_format.** Type: string. Default: TFLITE. Especifica el formato del archivo de salida. Valores permitidos:
 
-+TFLITE: TensorFlow Lite FlatBuffer format.
++ TFLITE: TensorFlow Lite FlatBuffer format.
 
-+GRAPHVIZ_DOT: Formato GraphViz .dot que contiene una visualización del gráfico después de las transformaciones del gráfico.
++ GRAPHVIZ_DOT: Formato GraphViz .dot que contiene una visualización del gráfico después de las transformaciones del gráfico.
 
 Tener en cuenta que pasar GRAPHVIZ_DOT a --output_format conduce a la pérdida de transformaciones específicas de TFLite. Por lo tanto, la visualización resultante puede no reflejar el conjunto final de transformaciones gráficas. Para obtener una visualización final con todas las transformaciones de gráficos, usar --dump_graphviz_dir en su lugar.
 

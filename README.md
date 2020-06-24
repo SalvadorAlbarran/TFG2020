@@ -50,7 +50,7 @@ Se necesita instalar tensorflow-gpu == 1.13.1 si quieres usar la misma versión 
 Además, necesitaremos instalar el software de NVIDIA donde se puede encontrar la información aquí: https://www.tensorflow.org/install/gpu/
 Para saber que versión instalar se puede mirar en esta gráfica:
 
-![imagen](../master/imagenes/Image.png)
+![](../master/imagenes/Image.png)
 
 Sacada de https://www.tensorflow.org/install/source#linux
 
@@ -65,7 +65,7 @@ Con esto instalará todos los requisitos de NVIDIA que necesita esta versión de
 
 Además, en el caso de que se use la versión de CPU (intel) anaconda tiene un rendimiento bastante significativo (alrededor de 8 veces más rápido) en comparación con pip como se muestra en la siguiente figura:
 
-
+![](../master/imagenes/Image [1].png)
 
 
 

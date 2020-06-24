@@ -363,7 +363,7 @@ Para convertir a kmodel recuerda que en la carpeta images:\ de la herramienta ne
 
 Con esto ya tendríamos nuestro modelo en formato kmodel y listo para probarlo.
 
-# 7. Introducir el kmodel usando micropython y MaixpyIde, o c con Standalone o FreeRTOS:
+# 7. Introducir el kmodel usando Micropython con MaixpyIde o C con Standalone o FreeRTOS:
 
 Herramienta para introducir todos los archivos necesarios:
 

@@ -65,7 +65,60 @@ Con esto instalará todos los requisitos de NVIDIA que necesita esta versión de
 
 Además, en el caso de que se use la versión de CPU (intel) anaconda tiene un rendimiento bastante significativo (alrededor de 8 veces más rápido) en comparación con pip como se muestra en la siguiente figura:
 
-![](../master/imagenes/Image [1].png)
+![](../master/imagenes/Image%20%5B1%5D.png)
+
+Este ejemplo se realizó con un Intel® Xeon® Gold 6130.
+
+La información se puede encontrar aquí:
+
+https://www.anaconda.com/tensorflow-in-anaconda/
+
+
+
+# 2. Descargar el modelo pre entrenado de mobilenetv1
+
+https://arxiv.org/pdf/1704.04861.pdf
+
+https://ai.googleblog.com/2017/06/mobilenets-open-source-models-for.html
+ 
+Mobilenetv1 son clases de modelos eficientes llamados MobileNets para aplicaciones de móviles y aplicaciones de visión empotradas. Se basa en una arquitectura optimizada que utiliza convoluciones separables en profundidad para construir redes profundas de peso ligero.
+
+Introducen 2 hiperparámetros:
+
+Multiplicador de anchura: Se usa para adelgazar una red de manera uniforme en cada capa. Dada una capa y un multiplicador de anchura α el número de canales de entrada M sería αM y el número de canales de salida N sería αN.
+Esto tiene el efecto de reducir el coste computacional y el número de parámetros cuadráticamente alrededor de α2. Se puede aplicar a cualquier estructura de modelo para definir un nuevo modelo más pequeño.
+
+Multiplicador de resolución (ρ): Se aplica en la imagen de entrada y la interna representación de cada capa es reducida por dicho multiplicador.
+Aplicamos este hiperparámetro implícitamente cuando ajustamos la resolución de entrada, es decir al poner como resolución 224,192,160 o 128.
+Esto hace reducir el coste computacional alrededor de ρ2.
+
+La arquitectura de mobilenet se puede observar en la siguiente tabla:
+
+![](../master/imagenes/Image%20%5B2%5D.png)
+
+https://github.com/fchollet/deep-learning-models/releases/tag/v0.6/
+
+Se recomienda usar mobilenet_7_5_224_tf_no_top.h5
+
+Lo guardaremos en ~ /.keras/models/
+
+Significa que tiene un valor alpha = 0.75 llamado multiplicador de anchura, el tamaño de la imagen de entrada es de 224x224 y sin capa del top(sin dropout ni última capa conectada con activación softmax).
+
+Se recomienda por la siguiente tabla:
+
+![](../master/imagenes/Image%20%5B2%5D.png)
+
+https://github.com/fchollet/deep-learning-models/releases/tag/v0.6/
+Se recomienda usar mobilenet_7_5_224_tf_no_top.h5
+Lo guardaremos en ~ /.keras/models/
+Significa que tiene un valor alpha = 0.75 llamado multiplicador de anchura, el tamaño de la imagen de entrada es de 224x224 y sin capa del top(sin dropout ni última capa conectada con activación softmax).
+Se recomienda por la siguiente tabla:
+
+
+
+
+
+
 
 
 

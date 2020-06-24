@@ -50,7 +50,7 @@ Se necesita instalar tensorflow-gpu == 1.13.1 si quieres usar la misma versión 
 Además, necesitaremos instalar el software de NVIDIA donde se puede encontrar la información aquí: https://www.tensorflow.org/install/gpu/
 Para saber que versión instalar se puede mirar en esta gráfica:
 
-![test](../master/imagenes/image [1].png)
+![imagen](../master/imagenes/Image.png)
 
 Sacada de https://www.tensorflow.org/install/source#linux
 
